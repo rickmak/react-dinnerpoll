@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Reflux from 'reflux';
 
-class FormControl extends Component {
+class FormControl extends Reflux.Component {
   render() {
     return (
       <input 

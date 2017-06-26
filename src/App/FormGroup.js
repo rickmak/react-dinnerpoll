@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
+import Reflux from 'reflux';
 
-class FormGroup extends Component {
+class FormGroup extends Reflux.Component {
   render() {
     if (this.props.formControl) {
       return (
