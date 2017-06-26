@@ -6,7 +6,7 @@ import Content from './Content';
 class App extends Reflux.Component {
   render() {
     return (
-      <div className="d-flex justify-content-center align-items-center" style={{height: '100vh'}}>
+      <div className="d-flex justify-content-center align-items-center" style={{minHeight: '100vh'}}>
         <div style={{width: '100%'}}>
           <div className="container-fluid">
             <Headline />
