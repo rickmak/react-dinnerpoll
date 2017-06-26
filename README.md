@@ -38,6 +38,10 @@ App
     │       └── FormGroup
     │           └── FormControl
     └── VotingOverview
+        ├── Toolbar
+        ├── PollingResultChart
+        └── VotingCardDeck
+            └── VotingCard
 ```
 
 Tips for new contributors :heart:
