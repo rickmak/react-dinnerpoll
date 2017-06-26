@@ -61,7 +61,7 @@ Tips for new contributors :heart:
 
 ### Reflux
 *   Create component using `Reflux.Component` instead of React's
-*   You have to `setState({wholeObj: wholeObj})` if you state is an object
+*   You have to `setState({wholeObj: wholeObj})` if your state is an object
 *   Parent should not listen to store that is manipulated by children, e.g. `isSignedIn` controlled by `Form` inside `Content`
 *   Use storeKeys when hooking multiple stores into a component -> prevent pollution
 
