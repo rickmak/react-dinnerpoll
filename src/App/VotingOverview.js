@@ -2,6 +2,7 @@ import React from 'react';
 import Reflux from 'reflux';
 import PollingResultChart from './PollingResultChart';
 import Toolbar from './Toolbar';
+import VotingCardDeck from './VotingCardDeck';
 
 class VotingOverview extends Reflux.Component {
   render() {
@@ -9,6 +10,7 @@ class VotingOverview extends Reflux.Component {
       <div>
         <Toolbar />
         <PollingResultChart />
+        <VotingCardDeck />
       </div>
     );
   }
