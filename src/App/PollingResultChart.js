@@ -81,25 +81,25 @@ export default class PollingResultChart extends Reflux.Component {
             labels: ["burger", "chasiu", "noodles", "pizza",],
             datasets: [{
                 label: "Votes",
-                backgroundColor: '#9FD1F5',
-                borderColor: '#9FD1F5',
+                backgroundColor: Chart.helpers.color('rgb(54, 162, 235)').alpha(0.5).rgbString(),
+                borderColor: 'rgb(54, 162, 235)',
                 data: [0, 0, 0, 0],
             }]
         },
         options: {
+          responsive: true,
           title: {
             display: true,
             text: 'Polling Result'
           },
-          options: { 
-            scales: { 
-              yAxes: [{ 
-                ticks: { 
-                  beginAtZero:true 
-                } 
-              }] 
-            } 
-          }
+          scales: { 
+            yAxes: [{ 
+              ticks: { 
+                min: 0,
+                beginAtZero:true 
+              } 
+            }] 
+          },
         }
     });
     this.updateVotes();
