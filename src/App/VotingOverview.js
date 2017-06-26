@@ -8,7 +8,7 @@ class VotingOverview extends Reflux.Component {
     return (
       <div>
         <Toolbar />
-        
+        <PollingResultChart />
       </div>
     );
   }
