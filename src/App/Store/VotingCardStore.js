@@ -18,7 +18,8 @@ class VotingCardStore extends Reflux.Store {
 
     const Vote = skygear.Record.extend('vote');
     const vote = new Vote({
-      choice: choice
+      choice: choice,
+      voter: voter,
     });
 
     skygear.publicDB.save(vote)
