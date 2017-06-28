@@ -1,12 +1,9 @@
 import Chart from 'chart.js';
 import React from 'react';
 import Reflux from 'reflux';
-import skygear from 'skygear';
 import ChartActions from './Action/ChartActions.js';
 
 export default class PollingResultChart extends Reflux.Component {
-
-
   componentDidMount() {
     this.ctx = document.getElementById('polling-result').getContext('2d');
     this.chart = new Chart(this.ctx, {
