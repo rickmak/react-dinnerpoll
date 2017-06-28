@@ -11,7 +11,6 @@ class ToolbarStore extends Reflux.Store {
   }
 
   onSignOut() {
-    console.log('si');
     skygear.logout().then(() => {
       console.log('logout successfully');
       AuthenticationActions.signOutSuccess();

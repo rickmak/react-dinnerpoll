@@ -11,7 +11,6 @@ class VotingCardStore extends Reflux.Store {
   }
 
   onVote(event) {
-    console.log(event.target.name);
     let choice = event.target.name
     const voter = new skygear.Reference(
       "user/" + skygear.currentUser.id
