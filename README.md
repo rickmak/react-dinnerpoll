@@ -24,7 +24,27 @@ npm install
 npm start
 ```
 
-Tips for new contributors <3
+App components' hierarchy
+-------------
+```
+App
+├── Headline
+└── Content
+    ├── Form
+    │   ├── SignInForm
+    │   │   └── FormGroup
+    │   │       └── FormControl
+    │   └── SignUpForm
+    │       └── FormGroup
+    │           └── FormControl
+    └── VotingOverview
+        ├── Toolbar
+        ├── PollingResultChart
+        └── VotingCardDeck
+            └── VotingCard
+```
+
+Tips for new contributors :heart:
 -------------
 
 *   Read docs of above dependencies
@@ -41,8 +61,9 @@ Tips for new contributors <3
 
 ### Reflux
 *   Create component using `Reflux.Component` instead of React's
+*   You have to `setState({wholeObj: wholeObj})` if your state is an object
+*   Parent should not listen to store that is manipulated by children, e.g. `isSignedIn` controlled by `Form` inside `Content`
 *   Use storeKeys when hooking multiple stores into a component -> prevent pollution
-*   Mind not to change state that will render input element when user is typing
 
 ### Boostrap 4
 *   Grid system
