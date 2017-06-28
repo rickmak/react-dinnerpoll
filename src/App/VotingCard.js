@@ -12,7 +12,7 @@ class VotingCard extends Reflux.Component {
   render() {
     return (
       <div className="card text-center">
-        <div className="d-flex align-items-center justify-content-center p-3" style={{flex: '1 1 auto'}}>
+        <div className="d-flex justify-content-center align-items-center p-3" style={{flex: '1 1 50%'}}>
           <img className="img-fluid" src={this.props.imgSrc} alt={this.props.imgAlt} style={{maxWidth: '90%'}} />
         </div>
         <div className="card-block">
