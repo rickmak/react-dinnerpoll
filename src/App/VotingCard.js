@@ -1,7 +1,14 @@
 import React from 'react';
 import Reflux from 'reflux';
+import VotingCardActions from './Action/VotingCardActions.js';
+import VotingCardStore from './Store/VotingCardStore.js';
 
 class VotingCard extends Reflux.Component {
+  constructor(props){
+    super(props);
+    this.store = VotingCardStore;
+  }
+
   render() {
     return (
       <div className="card text-center">
@@ -11,7 +18,7 @@ class VotingCard extends Reflux.Component {
         <div className="card-block">
           <h4 className="card-title">{this.props.title}</h4>
           <p className="card-text">{this.props.description}</p>
-          <button type="button" className="btn btn-primary">Vote</button>
+          <button type="button" name={this.props.food} className="btn btn-primary" onClick={VotingCardActions.vote}>Vote</button>
         </div>
       </div>
     );
