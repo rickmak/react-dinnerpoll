@@ -9,7 +9,7 @@ export default class PollingResultChart extends Reflux.Component {
     this.chart = new Chart(this.ctx, {
         type: 'bar',
         data: {
-            labels: ["burger", "chasiu", "noodles", "pizza",],
+            labels: this.props.labels,
             datasets: [{
                 label: "Votes",
                 backgroundColor: Chart.helpers.color('rgb(54, 162, 235)').alpha(0.5).rgbString(),
@@ -37,6 +37,7 @@ export default class PollingResultChart extends Reflux.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    this.chart.data.labels = nextProps.labels;
     this.chart.data.datasets[0].data = nextProps.data;
     this.chart.update();
   }

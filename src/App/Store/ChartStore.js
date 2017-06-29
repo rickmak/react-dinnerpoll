@@ -6,14 +6,13 @@ class ChartStore extends Reflux.Store {
   constructor() {
     super();
     this.state = {
-      data: [0, 0, 0, 0],
-      test: false,
+      labels: [''],
+      data: [0],
     };
     this.listenables = ChartActions;
   }
 
   onUpdateChart() {
-    this.setState({test: true});
     function getVotes(food) {
       let Vote = skygear.Record.extend('vote');
       let query = new skygear.Query(Vote);
@@ -23,20 +22,29 @@ class ChartStore extends Reflux.Store {
       return skygear.publicDB.query(query);
     }
 
-    let promises = Promise.all([
-      getVotes('burger'), 
-      getVotes('chasiu'),
-      getVotes('noodles'),
-      getVotes('pizza'),
-    ]);
-    
-    promises.then(votes => {
-      var data = votes.map(v => {return v.overallCount});
-      console.log(data);
-      this.setState({data: data});
-    }).catch(error => {
-      console.log(error);
-    });
+    // get labels
+    skygear.lambda('distinct')
+      .then(res => {
+        console.log(res);
+        let choices = res.response;
+        let labels = choices.map((choiceObj) => {
+          return choiceObj.choice
+        })
+        let promises = labels.map((label) => {
+          return getVotes(label)
+        })
+        Promise.all(promises).then(votes => {
+          let data = votes.map(v => {return v.overallCount});
+          console.log(labels)
+          console.log(data);
+          this.setState({
+            labels: labels,
+            data: data,
+          });
+        }).catch(error => {
+          console.log(error);
+        });
+      });
   }
 }
 
