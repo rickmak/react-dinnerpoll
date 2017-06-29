@@ -13,7 +13,7 @@ class Content extends Reflux.Component {
   render() {
     return (
       <div className="row justify-content-center my-3">
-        {true? (
+        {this.state.user? (
           <div className="col-9">
             <VotingOverview />
           </div>
