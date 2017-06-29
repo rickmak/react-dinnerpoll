@@ -16,7 +16,7 @@ class VotingOverview extends Reflux.Component {
     return (
       <div>
         <Toolbar />
-        <PollingResultChart data={this.state.data} />
+        <PollingResultChart labels={this.state.labels} data={this.state.data} />
         <VotingCardDeck />
         <VotingForm />
       </div>
