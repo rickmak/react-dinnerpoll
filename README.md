@@ -29,7 +29,7 @@ Quick start
 *   Cloud Functions
     ```bash
     cd cloud
-    # find the url on https://portal-staging.skygear.io/app/dinnerpollpoly/cloud-functions
+    # find the url on https://portal.skygear.io/app/dinnerpollpoly/cloud-functions
     git remote add skygear-portal ssh://<your-cloud-code-git-url>
     git push skygear-portal master
     ```
