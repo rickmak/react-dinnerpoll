@@ -1,17 +1,25 @@
 import Reflux from 'reflux';
 import skygear from 'skygear';
 import ChartActions from '../Action/ChartActions.js';
-import VotingCardActions from '../Action/VotingCardActions.js';
+import VotingFormActions from '../Action/VotingFormActions.js';
 
-class VotingCardStore extends Reflux.Store {
+class VotingFormStore extends Reflux.Store {
   constructor() {
     super();
-    this.state = {};
-    this.listenables = VotingCardActions;
+    this.state = {
+      food: '',
+    };
+    this.listenables = VotingFormActions;
+  }
+
+  onFoodEdited(event) {
+    this.setState({
+      food: event.target.value,
+    });
   }
 
   onVote(event) {
-    let choice = event.target.name
+    let choice = this.state.food;
     const voter = new skygear.Reference(
       "user/" + skygear.currentUser.id
     );
@@ -21,6 +29,7 @@ class VotingCardStore extends Reflux.Store {
       choice: choice,
       voter: voter,
     });
+    console.log(vote);
 
     skygear.publicDB.save(vote)
     .then((record) => {
@@ -32,4 +41,4 @@ class VotingCardStore extends Reflux.Store {
   }
 }
 
-export default VotingCardStore;
+export default VotingFormStore;
